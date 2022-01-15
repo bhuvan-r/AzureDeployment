@@ -4,7 +4,7 @@ import pickle
 
 
 app = Flask(__name__)
-model = pickle.load(open('randomForestRegressor.pkl','rb'))
+model = pickle.load(open('best_model.pkl','rb'))
 
 
 @app.route('/')
