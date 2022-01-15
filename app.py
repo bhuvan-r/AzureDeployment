@@ -1,40 +1,36 @@
+from flask import Flask, render_template, request
+import joblib
 import numpy as np
-from flask import Flask, request, jsonify, render_template, url_for
-import pickle
+import pandas as pd
+
+best_model = joblib.load('model_predict/best_model.pkl')
 
 
 app = Flask(__name__)
-model = pickle.load(open('best_model.pkl','rb'))
-
 
 @app.route('/')
+def man():
+    return render_template('home.html') 
+
+@app.route('/predict', methods=['POST'])
+
 def home():
-    #return 'Hello World'
-    return render_template('home.html')
-    #return render_template('index.html')
+    text = request.form['input']
+    request_model = request.form['model']
 
-@app.route('/predict',methods = ['POST'])
-def predict():
-    int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
-    print(prediction[0])
+    X = word_tokenize(text, format="text")
+    features = tfidf.transform([X]).toarray()
+    
+    if request_model == "1":
+        model = best_model
+        
+    print(X)
+    print(request_model)  
+    print(model)
+    
+    pred = model.predict_proba(features) [:,1]
 
-    #output = round(prediction[0], 2)
-    return render_template('home.html', prediction_text="AQI for Jaipur {}".format(prediction[0]))
+    return render_template('after.html', proba = pred)
 
-@app.route('/predict_api',methods=['POST'])
-def predict_api():
-    '''
-    For direct API calls trought request
-    '''
-    data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
-
-    output = prediction[0]
-    return jsonify(output)
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=False)
