@@ -6,15 +6,6 @@ import numpy as np
 import pandas as pd
 import joblib
 
-import azureml.automl.core
-from azureml.automl.core.shared import logging_utilities, log_server
-from azureml.telemetry import INSTRUMENTATION_KEY
-
-from inference_schema.schema_decorators import input_schema, output_schema
-from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
-from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
-from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
-
 best_model = joblib.load('model_predict/best_model.pkl')
 
 
