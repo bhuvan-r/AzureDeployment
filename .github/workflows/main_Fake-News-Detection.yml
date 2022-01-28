@@ -30,15 +30,6 @@ jobs:
     - name: Install dependencies
       run: pip install -r requirements.txt
 
-    # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
-
-    - name: Upload artifact for deployment jobs
-      uses: actions/upload-artifact@v2
-      with:
-        name: python-app
-        path: |
-          .
-          !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,6 +48,5 @@ jobs:
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Fake-News-Detection'
+          app-name: 'fakenewsdetection-bybhuvan'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_5221c7a88cc8442e85cc6a9193a73a32 }}
