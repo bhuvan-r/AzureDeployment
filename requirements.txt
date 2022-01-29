@@ -1,8 +1,8 @@
 Flask
-azureml-train-automl-runtime
+azureml-train-automl-runtime==1.18.0
 inference-schema
-azureml-interpret==1.37.0
-azureml-defaults==1.37.0
+azureml-interpret==1.18.0
+azureml-defaults==1.18.0
 numpy
 pandas
 scikit-learn
