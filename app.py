@@ -5,7 +5,9 @@ import pickle
 import numpy as np
 import pandas as pd
 import joblib
-from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
+import urllib.request
+import ssl
+
 
 best_model = joblib.load('model_predict/best_model.pkl')
 

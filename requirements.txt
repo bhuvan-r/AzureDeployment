@@ -1,14 +1,10 @@
-- Flask==2.0.2
-- azureml-train-automl-runtime==1.37.0
-- inference-schema
-- azureml-interpret==1.37.0
-- azureml-defaults==1.37.0
-- numpy>=1.16.0,<1.19.0
-- pandas==0.25.1
-- scikit-learn==0.22.1
-- py-xgboost<=0.90
-- fbprophet==0.5
-- holidays==0.9.11
-- psutil>=5.2.2,<6.0.0
-- anaconda
-- conda-forge
+Flask==2.0.2
+azureml-train-automl-runtime
+inference-schema
+azureml-interpret
+azureml-defaults
+numpy
+pandas
+scikit-learn
+psutil
+anaconda
