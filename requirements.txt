@@ -1,5 +1,5 @@
 Flask==2.0.2
-azureml-train-automl-runtime==1.18.0
+azureml-train-automl-runtime==1.38.0
 inference-schema
 azureml-interpret
 azureml-defaults
