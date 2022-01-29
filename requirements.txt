@@ -1,4 +1,4 @@
-Flask==2.0.2
+Flask
 azureml-train-automl-runtime
 inference-schema
 azureml-interpret==1.37.0
